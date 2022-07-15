@@ -4,6 +4,7 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     private Material _material;
+    private IDisposable _disposable;
     private HashSet<Circle> _circles;
     public void Initialize(Circle circle)
     {
@@ -19,14 +20,14 @@ public class Flag : MonoBehaviour
 
             _circles = new HashSet<Circle>();
         }
+        _circles?.Clear();
         _circles.Add(circle);
-
         var cc = circle.OwnerPlayer.mainColor;
         _material.color = new Color(cc.r - 0.1f, cc.g - 0.1f, cc.b - 0.1f);
 
         SettlePosition();
     }
-    private void SettlePosition()
+    public void SettlePosition()
     {
         Vector3 pos = Vector3.zero;
         foreach(var c in _circles)
@@ -48,5 +49,17 @@ public class Flag : MonoBehaviour
             }
         }
         transform.position = desiredPos;
+    }
+    public void AddCircle(Circle circle)
+    {
+        int cnt = _circles.Count;
+        _circles.Add(circle);
+    }
+    public void Dispose()
+    {
+        if (_disposable == null)
+            _disposable = GetComponent<IDisposable>();
+        if (gameObject.activeSelf)
+            _disposable.Dispose();
     }
 }

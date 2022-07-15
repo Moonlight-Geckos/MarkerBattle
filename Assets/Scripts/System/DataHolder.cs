@@ -10,9 +10,6 @@ public class DataHolder : MonoBehaviour
     private List<SkinItem> allSkins;
 
     [SerializeField]
-    private CirclesPool circlesPool;
-
-    [SerializeField]
     private List<Player> playersList;
 
     #endregion Public
@@ -26,10 +23,6 @@ public class DataHolder : MonoBehaviour
     public List<SkinItem> AllSkins
     {
         get { return allSkins; }
-    }
-    public CirclesPool CirclesPool
-    {
-        get { return circlesPool; }
     }
     public List<Player> Players
     {

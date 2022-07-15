@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allSkins: []
-  circlesPool: {fileID: 11400000, guid: 2d93312d51558b7489e66585afff65fe, type: 2}
   playersList:
   - mainColor: {r: 0.23268063, g: 0.59508204, b: 0.8113208, a: 1}
     number: 0
@@ -80,3 +79,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flagsPool: {fileID: 11400000, guid: 368e19f5b797bc3448c2d60e014de5b1, type: 2}
   markersPool: {fileID: 11400000, guid: 17120b18b357b064bbbc28608af655be, type: 2}
+  circlesPool: {fileID: 11400000, guid: 2d93312d51558b7489e66585afff65fe, type: 2}

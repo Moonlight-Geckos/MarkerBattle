@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Circle : MonoBehaviour
@@ -11,9 +13,9 @@ public class Circle : MonoBehaviour
     private float _dis;
     private Color tranColor;
     private Flag _flag;
-    private Marker _marker;
 
-    List<Circle> _newIntersectedCircles;
+    HashSet<Circle> _newIntersectedCircles;
+    HashSet<Circle> _intersectedCircles;
     public Player OwnerPlayer
     {
         get { return _ownerPlayer; }
@@ -29,7 +31,8 @@ public class Circle : MonoBehaviour
     private void Awake()
     {
         _material = GetComponent<Renderer>().material;
-        _newIntersectedCircles = new List<Circle>();
+        _newIntersectedCircles = new HashSet<Circle>();
+        _intersectedCircles = new HashSet<Circle>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -66,33 +69,53 @@ public class Circle : MonoBehaviour
         _material.color = tranColor;
 
         _newIntersectedCircles.Clear();
-        _marker = PoolsPool.Instance.MarkersPool.Pool.Get();
-        _marker.Initialize(this);
+        _intersectedCircles.Clear();
     }
     public void Dispose()
     {
         if (_disposable == null)
             _disposable = GetComponent<IDisposable>();
 
+        _flag = null;
         _disposable.Dispose();
-        _marker?.Dispose();
     }
     private void AddIntersection(Circle circle)
     {
-        _dis = Vector3.Distance(circle.transform.position, transform.position);
-        if (_dis < circle.Radius - Radius)
-        {
-            Dispose();
-        }
+        _intersectedCircles.Add(circle);
     }
     private void SetupIntersections()
     {
         foreach (Circle circle in _newIntersectedCircles)
         {
-            circle.AddIntersection(this);
-            circle._flag.Initialize(this);
-            _flag = circle._flag;
+            _intersectedCircles.Add(circle);
         }
+        Queue<Circle> nodes = new Queue<Circle>();
+        HashSet<Circle> _visited = new HashSet<Circle>();
+
+        foreach(Circle circle in _intersectedCircles)
+            nodes.Enqueue(circle);
+        while (nodes.Count > 0)
+        {
+            Circle circle = nodes.Dequeue();
+            if (_visited.Contains(circle))
+                continue;
+
+            _visited.Add(circle);
+
+            _flag.AddCircle(circle);
+            if(_flag != circle._flag)
+                circle._flag.Dispose();
+            circle._flag = _flag;
+
+            foreach (var child in circle._intersectedCircles)
+                if (!_visited.Contains(child))
+                    nodes.Enqueue(child);
+        }
+        foreach (Circle circle in _newIntersectedCircles)
+        {
+            circle.AddIntersection(this);
+        }
+        _flag.SettlePosition();
         _newIntersectedCircles.Clear();
     }
     public bool Grow()
@@ -113,14 +136,21 @@ public class Circle : MonoBehaviour
             return;
         }
         _active = true;
-        _marker?.Dispose();
         _material.color = _ownerPlayer.mainColor;
-        if (_newIntersectedCircles.Count > 0)
+        _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
+        _flag.Initialize(this);
+        if(_newIntersectedCircles.Count > 0)
             SetupIntersections();
-        else
-        {
-            _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
-            _flag.Initialize(this);
-        }
+    }
+
+    public override int GetHashCode()
+    {
+        var u = Math.Round(transform.position.x, 2).ToString() + Math.Round(transform.position.z, 2).ToString();
+        u = u.Replace("-", "");
+        return int.Parse(u.Replace(".", ""));
+    }
+    public override bool Equals(object other)
+    {
+        return other.GetHashCode() == GetHashCode();
     }
 }

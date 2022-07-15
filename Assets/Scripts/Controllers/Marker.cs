@@ -29,6 +29,7 @@ public class Marker : MonoBehaviour
         {
             _disposable = GetComponent<IDisposable>();
         }
-        _disposable.Dispose();
+        if(gameObject.activeSelf)
+            _disposable.Dispose();
     }
 }
