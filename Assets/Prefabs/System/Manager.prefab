@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3903623678778322833}
   - component: {fileID: 3903623678778322834}
   - component: {fileID: 3903623678778322832}
-  - component: {fileID: 3903623678778322835}
-  - component: {fileID: 3903623678778322845}
+  - component: {fileID: 2488971048288219267}
+  - component: {fileID: 234651352}
   m_Layer: 0
-  m_Name: SystemManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b87c8269503240aed66a84a2db906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3903623678778322835
+--- !u!114 &2488971048288219267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,11 +68,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3903623678778322838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae25a42a53a5a6f42b0a373330aadc5e, type: 3}
+  m_Script: {fileID: 11500000, guid: cce531d47fece874e901dff0086fdcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allSkins: []
---- !u!114 &3903623678778322845
+  stickmenPool: {fileID: 11400000, guid: b2179eece190fce4db928f4b72b888ea, type: 2}
+  spawnCellSize: 0.75
+--- !u!114 &234651352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +82,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3903623678778322838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf90d58dd5125e041b00c25306f62256, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f16198a9f4a5dd4a96538ec45b56290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPoolSize: 100
+  worldEdge: {fileID: 6068306482254983732, guid: 82ba3fe3b6fae30469b3cdc5700ececc,
+    type: 3}

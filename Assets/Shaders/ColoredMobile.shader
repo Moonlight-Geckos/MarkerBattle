@@ -1,6 +1,7 @@
 Shader "Custom/OptimizedColor" {
     Properties{
         _Color("Color", Color) = (1.0,1.0,1.0,1.0)
+        _MainTex("Albedo", 2D) = "white" 
     }
         SubShader{
             Tags

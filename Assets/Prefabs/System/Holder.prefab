@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7214718027044928192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7214718027044928206}
+  - component: {fileID: 7214718027044928193}
+  - component: {fileID: 7214718027044928207}
+  - component: {fileID: 7214718027044928204}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7214718027044928206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214718027044928192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19092543, y: -0.18539563, z: 0.11183338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7214718027044928193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214718027044928192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae25a42a53a5a6f42b0a373330aadc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSkins: []
+  circlesPool: {fileID: 11400000, guid: 2d93312d51558b7489e66585afff65fe, type: 2}
+  playersList:
+  - mainColor: {r: 0.23268063, g: 0.59508204, b: 0.8113208, a: 1}
+    number: 0
+  - mainColor: {r: 1, g: 0, b: 0, a: 1}
+    number: 1
+--- !u!114 &7214718027044928207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214718027044928192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf90d58dd5125e041b00c25306f62256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 100
+--- !u!114 &7214718027044928204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214718027044928192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c3552eff86c9f4081991c3df6f9fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagsPool: {fileID: 11400000, guid: 368e19f5b797bc3448c2d60e014de5b1, type: 2}
+  markersPool: {fileID: 11400000, guid: 17120b18b357b064bbbc28608af655be, type: 2}

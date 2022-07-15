@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 public class Observer : MonoBehaviour
 {
     private static bool _started;
     private static bool _finished;
 
     private static Observer _instance;
-    private static Transform _playerTransform;
+
 
     public bool Finished
     {
@@ -16,10 +17,6 @@ public class Observer : MonoBehaviour
     {
         get { return _started; }
         set { _started = value; }
-    }
-    public Transform PlayerTransform
-    {
-        get { return _playerTransform; }
     }
     public static Observer Instance
     {
@@ -43,7 +40,6 @@ public class Observer : MonoBehaviour
     private void StartGame()
     {
         _started = true;
-        _playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
     private void FinishGame(bool w)
     {

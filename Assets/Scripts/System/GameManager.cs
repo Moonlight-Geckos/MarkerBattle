@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private static bool _started;
     private static bool _finished;
+    private static Camera _camera;
 
     #endregion
     static public GameManager Instance
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
             _instance = this;
             _finished = false;
             _started = false;
+
             Application.targetFrameRate = 60;
             EventsPool.ClearPoolsEvent.Invoke();
             EventsPool.GameStartedEvent.AddListener(StartGame);

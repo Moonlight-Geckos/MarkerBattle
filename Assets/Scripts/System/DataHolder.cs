@@ -9,6 +9,12 @@ public class DataHolder : MonoBehaviour
     [SerializeField]
     private List<SkinItem> allSkins;
 
+    [SerializeField]
+    private CirclesPool circlesPool;
+
+    [SerializeField]
+    private List<Player> playersList;
+
     #endregion Public
 
     private static DataHolder _instance;
@@ -20,6 +26,14 @@ public class DataHolder : MonoBehaviour
     public List<SkinItem> AllSkins
     {
         get { return allSkins; }
+    }
+    public CirclesPool CirclesPool
+    {
+        get { return circlesPool; }
+    }
+    public List<Player> Players
+    {
+        get { return playersList; }
     }
 
     #region Methods
@@ -33,6 +47,7 @@ public class DataHolder : MonoBehaviour
         {
             _instance = this;
             allSkins?.Sort((x, y) => x.skinNumber.CompareTo(y.skinNumber));
+            playersList?.Sort((x, y) => x.number.CompareTo(y.number));
         }
 
     }
