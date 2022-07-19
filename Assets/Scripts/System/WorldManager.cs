@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
+    [SerializeField]
+    [Range(0.5f, 2f)]
+    private float spawnCellSize = 0.5f;
 
     [SerializeField]
     private GameObject worldEdge;
 
     private Camera _camera;
+
+    private KdTree<Flag>[] _tree;
+
+    private int _playersCount;
+
+    private static WorldManager _instance;
+
+    public static WorldManager Instance
+    {
+        get { return _instance; }
+    }
     public static Vector3 RightBottomCorner
     {
         get;
@@ -29,10 +43,53 @@ public class WorldManager : MonoBehaviour
         get;
         private set;
     }
+    public float SpawnCellSize
+    {
+        get { return spawnCellSize; }
+    }
     void Awake()
     {
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        _instance = this;
         _camera = Camera.main;
+        _playersCount = DataHolder.Instance.Players.Count;
+        _tree = new KdTree<Flag>[_playersCount];
+        for (int i = 0; i < _playersCount; i++)
+        {
+            _tree[i] = new KdTree<Flag>();
+        }
+
+        void RemoveFlag(Flag flag)
+        {
+            for (int i = 0; i < _playersCount; i++)
+            {
+                if (i != flag.PlayerOwner.number)
+                    _tree[i].RemoveAll((x) => x.Equals(flag));
+            }
+        }
+        void AddFlag(Flag flag)
+        {
+            for (int i = 0; i < _playersCount; i++)
+            {
+                if (i != flag.PlayerOwner.number)
+                    _tree[i].Add(flag);
+            }
+        }
+        EventsPool.FlagRemovedEvent.AddListener(RemoveFlag);
+        EventsPool.FlagPlacedEvent.AddListener(AddFlag);
+
         SetEdges();
+    }
+    private void Start()
+    {
+    }
+    public Flag ClosestFlag(Stickman stickman)
+    {
+        return _tree[stickman.PlayerOwner.number].FindClosest(stickman.transform.position);
     }
     private void SetEdges()
     {

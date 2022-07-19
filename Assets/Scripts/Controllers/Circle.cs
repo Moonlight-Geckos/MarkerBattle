@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class Circle : MonoBehaviour
 {
+    public bool Active;
+    public int PlayerOwnerNumber;
+
     private Player _ownerPlayer;
     private Material _material;
     private IDisposable _disposable;
 
-    private bool _active;
-    private float _dis;
     private Color tranColor;
     private Flag _flag;
 
@@ -24,33 +25,48 @@ public class Circle : MonoBehaviour
     {
         get { return 0.5f * transform.localScale.x; }
     }
-    public bool Settled
-    {
-        get { return _active; }
-    }
     private void Awake()
     {
         _material = GetComponent<Renderer>().material;
         _newIntersectedCircles = new HashSet<Circle>();
         _intersectedCircles = new HashSet<Circle>();
     }
+    private void Start()
+    {
+        if (Active)
+        {
+            var scale = transform.localScale;
+            Initialize(DataHolder.Instance.Players[PlayerOwnerNumber], transform.position);
+            transform.localScale = scale;
+            SettleDown();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        if (Active)
+            return;
         Circle circle;
         Stickman stickman;
         if (other.TryGetComponent(out circle))
         { 
             if(circle.OwnerPlayer.number == OwnerPlayer.number)
             {
-                if (!_active)
+                if (!Active)
                 {
                     _newIntersectedCircles.Add(circle);
                 }
             }
+            else
+            {
+                Dispose();
+            }
         }
         else if(other.TryGetComponent(out stickman))
         {
-
+            if(stickman.PlayerOwner.number != OwnerPlayer.number)
+            {
+                Dispose();
+            }
         }
         else
         {
@@ -59,14 +75,14 @@ public class Circle : MonoBehaviour
     }
     public void Initialize(Player owner, Vector3 position)
     {
-        _active = false;
+        Active = false;
         _ownerPlayer = owner;
         transform.position = position;
         transform.localScale = Vector3.one * 0.1f;
 
         tranColor = _ownerPlayer.mainColor;
         tranColor.a = 0.7f;
-        _material.color = tranColor;
+        SetColor(tranColor);
 
         _newIntersectedCircles.Clear();
         _intersectedCircles.Clear();
@@ -79,12 +95,46 @@ public class Circle : MonoBehaviour
         _flag = null;
         _disposable.Dispose();
     }
+    public void Occupy(Player owner)
+    {
+        _ownerPlayer = owner;
+        SetColor(owner.mainColor);
+    }
+    public bool Grow()
+    {
+        if (Active)
+            return false;
+        transform.localScale = transform.localScale + (Vector3.one * 0.02f);
+        return true;
+    }
+    public void SettleDown()
+    {
+        if (!gameObject.activeSelf || Active)
+            return;
+
+        if (transform.localScale.x <= 0.7f)
+        {
+            Dispose();
+            return;
+        }
+        Active = true;
+        SetColor(_ownerPlayer.mainColor);
+        _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
+        _flag.Initialize(this);
+        if (_newIntersectedCircles.Count > 0)
+            SetupIntersections();
+    }
+    private void SetColor(Color color)
+    {
+        _material.color = color;
+    }
     private void AddIntersection(Circle circle)
     {
         _intersectedCircles.Add(circle);
     }
     private void SetupIntersections()
     {
+        //BFS traverse to circles 
         foreach (Circle circle in _newIntersectedCircles)
         {
             _intersectedCircles.Add(circle);
@@ -118,31 +168,6 @@ public class Circle : MonoBehaviour
         _flag.SettlePosition();
         _newIntersectedCircles.Clear();
     }
-    public bool Grow()
-    {
-        if (_active)
-            return false;
-        transform.localScale = transform.localScale + (Vector3.one * 0.02f);
-        return true;
-    }
-    public void SettleDown()
-    {
-        if (!gameObject.activeSelf || _active)
-            return;
-
-        if (transform.localScale.x <= 0.7f)
-        {
-            Dispose();
-            return;
-        }
-        _active = true;
-        _material.color = _ownerPlayer.mainColor;
-        _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
-        _flag.Initialize(this);
-        if(_newIntersectedCircles.Count > 0)
-            SetupIntersections();
-    }
-
     public override int GetHashCode()
     {
         var u = Math.Round(transform.position.x, 2).ToString() + Math.Round(transform.position.z, 2).ToString();

@@ -1,11 +1,16 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Flag : MonoBehaviour
+public class Flag : Targetable
 {
     private Material _material;
     private IDisposable _disposable;
     private HashSet<Circle> _circles;
+    override public Player PlayerOwner
+    {
+        get { return _circles.Count > 0 ? _circles.First().OwnerPlayer : null; }
+    }
     public void Initialize(Circle circle)
     {
         if( _material == null)
@@ -22,10 +27,11 @@ public class Flag : MonoBehaviour
         }
         _circles?.Clear();
         _circles.Add(circle);
-        var cc = circle.OwnerPlayer.mainColor;
-        _material.color = new Color(cc.r - 0.1f, cc.g - 0.1f, cc.b - 0.1f);
 
+        SetColor(circle.OwnerPlayer.mainColor);
         SettlePosition();
+
+        EventsPool.FlagPlacedEvent.Invoke(this);
     }
     public void SettlePosition()
     {
@@ -60,6 +66,28 @@ public class Flag : MonoBehaviour
         if (_disposable == null)
             _disposable = GetComponent<IDisposable>();
         if (gameObject.activeSelf)
+        {
             _disposable.Dispose();
+            EventsPool.FlagRemovedEvent.Invoke(this);
+        }
+    }
+    public void Occupy(Stickman stick)
+    {
+        EventsPool.FlagRemovedEvent.Invoke(this);
+        foreach(var c in _circles)
+        {
+            c.Occupy(stick.PlayerOwner);
+        }
+        SetColor(stick.PlayerOwner.mainColor);
+        EventsPool.FlagPlacedEvent.Invoke(this);
+    }
+    private void SetColor(Color cc)
+    {
+        _material.color = new Color(cc.r - 0.1f, cc.g - 0.1f, cc.b - 0.1f);
+    }
+
+    public override void GetHit(Stickman stick)
+    {
+        Occupy(stick);
     }
 }

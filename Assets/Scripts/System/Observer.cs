@@ -6,7 +6,7 @@ public class Observer : MonoBehaviour
     private static bool _finished;
 
     private static Observer _instance;
-
+    private static WorldManager _worldManager;
 
     public bool Finished
     {
@@ -33,16 +33,17 @@ public class Observer : MonoBehaviour
             _instance = this;
             _started = false;
             _finished = false;
+            void StartGame()
+            {
+                _started = true;
+                _worldManager = WorldManager.Instance;
+            }
+            void FinishGame(bool w)
+            {
+                _finished = true;
+            }
             EventsPool.GameStartedEvent.AddListener(StartGame);
             EventsPool.GameFinishedEvent.AddListener(FinishGame);
         }
-    }
-    private void StartGame()
-    {
-        _started = true;
-    }
-    private void FinishGame(bool w)
-    {
-        _finished = true;
     }
 }

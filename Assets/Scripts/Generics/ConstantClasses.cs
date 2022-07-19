@@ -6,4 +6,5 @@ public class Player
 {
     public Color mainColor;
     public int number;
+    public float damage = 1;
 }
