@@ -13,7 +13,7 @@ public class StickmenSpawner : MonoBehaviour
         _spawnTimer = TimersPool.Instance.Pool.Get();
         _spawnTimer.Duration = 7f;
         _spawnTimer.AddTimerFinishedEventListener(Spawn);
-        _spawnTimer.Run();
+        EventsPool.GameStartedEvent.AddListener(() => _spawnTimer.Run());
     }
     private void Spawn()
     {
@@ -30,12 +30,14 @@ public class StickmenSpawner : MonoBehaviour
                 num = Physics.OverlapSphereNonAlloc(position, 0.01f, results, StaticValues.SpawnerLayer);
                 if(num > 0)
                 {
+                    Debug.Log(results[0].name);
                     var circle = results[0].GetComponent<Circle>();
                     if (!circle.Active)
                         continue;
                     var stickamn = stickmenPool.Pool.Get();
                     stickamn.transform.position = position;
                     stickamn.Initialize(circle.OwnerPlayer, 6, Vector3.zero);
+                    Debug.Log(stickamn.transform.position);
                 }
             }
         }

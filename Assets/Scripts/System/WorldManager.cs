@@ -91,12 +91,18 @@ public class WorldManager : MonoBehaviour
     {
         return _tree[stickman.PlayerOwner.number].FindClosest(stickman.transform.position);
     }
+    private void Update()
+    {
+        Debug.DrawLine(LeftBottomCorner, RightTopCorner, Color.white);
+        Debug.DrawLine(RightBottomCorner, LeftTopCorner, Color.white);
+    }
     private void SetEdges()
     {
         LeftBottomCorner = MathHelper.GetPointAtHeight(_camera.ViewportPointToRay(new Vector3(0, 0, 0)), 0);
         LeftTopCorner = MathHelper.GetPointAtHeight(_camera.ViewportPointToRay(new Vector3(0, 1, 0)), 0);
         RightTopCorner = MathHelper.GetPointAtHeight(_camera.ViewportPointToRay(new Vector3(1, 1, 0)), 0);
         RightBottomCorner = MathHelper.GetPointAtHeight(_camera.ViewportPointToRay(new Vector3(1, 0, 0)), 0);
+
 
         var edgesParent = new GameObject();
 
