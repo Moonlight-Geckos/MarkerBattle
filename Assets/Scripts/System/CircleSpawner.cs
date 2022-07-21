@@ -34,11 +34,13 @@ public class CircleSpawner : MonoBehaviour
 
         _marker = _markersPool.Pool.Get();
         _marker.Initialize(_onGoingCircle);
+        EventsPool.PlayerDrawingEvent.Invoke();
     }
     public void StopGrowing()
     {
         _marker?.Dispose();
         _onGoingCircle?.SettleDown();
         _onGoingCircle = null;
+        EventsPool.PlayerStoppedDrawingEvent.Invoke();
     }
 }

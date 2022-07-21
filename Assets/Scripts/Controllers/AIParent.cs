@@ -13,7 +13,7 @@ public class AIParent : MonoBehaviour
 
     private void Awake()
     {
-        EventsPool.GameStartedEvent.AddListener(SetupAIPlayer);
+        EventsPool.PlayerStoppedDrawingEvent.AddListener(SetupAIPlayer);
         EventsPool.NoMoreTargetsEvent.AddListener((int u) => _timer.Stop());
     }
     private void SetupAIPlayer()
@@ -30,6 +30,7 @@ public class AIParent : MonoBehaviour
             ai.Initialize(players[i]);
             _aiPlayers.Add(ai);
         }
+        EventsPool.PlayerStoppedDrawingEvent.RemoveListener(SetupAIPlayer);
         _timer.Run();
     }
     private void AITurn()

@@ -15,7 +15,12 @@ public class StickmenSpawner : MonoBehaviour
         _spawnTimer = TimersPool.Instance.Pool.Get();
         _spawnTimer.Duration = 10f;
         _spawnTimer.AddTimerFinishedEventListener(Spawn);
-        EventsPool.GameStartedEvent.AddListener(() => _spawnTimer.Run());
+        EventsPool.PlayerStoppedDrawingEvent.AddListener(StartSpawning);
+    }
+    private void StartSpawning()
+    {
+        _spawnTimer.Run();
+        EventsPool.PlayerStoppedDrawingEvent.RemoveListener(StartSpawning);
     }
     private void Spawn()
     {
