@@ -8,7 +8,6 @@ public class TimersPool : MonoBehaviour
     [SerializeField]
     int maxPoolSize = 100;
 
-
     private static TimersPool _instance;
     private static LinkedPool<Timer> _pool;
     private static UnityEvent<float> _updateTimersEvent;
@@ -17,7 +16,6 @@ public class TimersPool : MonoBehaviour
     {
         get { return _instance; }
     }
-
     private void Awake()
     {
         if(_instance != null && _instance != this)

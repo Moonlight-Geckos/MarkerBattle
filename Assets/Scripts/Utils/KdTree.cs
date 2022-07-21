@@ -185,7 +185,8 @@ public class KdTree<T> : IEnumerable<T>, IEnumerable where T : Component
         //readd
         while (current != null)
         {
-            _add(current);
+            if(current.component.gameObject.activeSelf)
+                _add(current);
             current = current._oldRef;
         }
     }
@@ -338,7 +339,7 @@ public class KdTree<T> : IEnumerable<T>, IEnumerable where T : Component
                 traversed.Add(current.component);
 
             var nodeDist = _distance(position, current.component.transform.position);
-            if (nodeDist < nearestDist && nodeDist != 0)
+            if (nodeDist < nearestDist)
             {
                 nearestDist = nodeDist;
                 nearest = current;

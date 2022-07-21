@@ -13,6 +13,9 @@ public class PoolsPool : MonoBehaviour
     [SerializeField]
     private CirclesPool circlesPool;
 
+    [SerializeField]
+    private AIPool aiPool;
+
     private static PoolsPool _instance;
     public static PoolsPool Instance
     {
@@ -29,6 +32,10 @@ public class PoolsPool : MonoBehaviour
     public CirclesPool CirclesPool
     {
         get { return circlesPool; }
+    }
+    public AIPool AIPool
+    {
+        get { return aiPool; }
     }
 
     private void Awake()

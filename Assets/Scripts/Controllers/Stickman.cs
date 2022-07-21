@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,11 +12,11 @@ public class Stickman : Targetable
 
     public float _currentHealth;
     private float _damage;
-    public bool _attacking;
+    private bool _attacking;
     private IDisposable _disposable;
     private Timer _attackTimer;
-    private KdTree<Targetable> _nearTargets;
-    public Targetable _closestTarget;
+    private Targetable _closestTarget;
+    private WorldManager _worldManager;
 
     override public Player PlayerOwner
     {
@@ -24,39 +25,28 @@ public class Stickman : Targetable
 
     private void Awake()
     {
+        _worldManager = WorldManager.Instance;
         _animator = GetComponentInChildren<Animator>();
         _skin = GetComponentInChildren<SkinnedMeshRenderer>();
         _navAgent = GetComponent<NavMeshAgent>();
         _attackTimer = TimersPool.Instance.Pool.Get();
-        _attackTimer.Duration = 0.5f;
         _attackTimer.AddTimerFinishedEventListener(Hit);
     }
     private void Update()
     {
-        if (_nearTargets == null)
-            return;
-        _nearTargets.UpdatePositions();
         if (_attacking)
         {
             if (!_closestTarget.gameObject.activeSelf || _closestTarget.PlayerOwner.number == _owner.number)
             {
                 StopAttack();
             }
-            else
-                transform.LookAt(_closestTarget.transform.position);
         }
         else
         {
-            if (_nearTargets.Count > 0)
-                _closestTarget = _nearTargets.FindClosest(transform.position);
-            else
-                _closestTarget = WorldManager.Instance.ClosestFlag(this);
+            _closestTarget = _worldManager.ClosestTarget(this);
 
-            if (_closestTarget == null)
-                return;
-            else if (!_closestTarget.gameObject.activeSelf)
+            if (_closestTarget == null || !_closestTarget.gameObject.activeSelf)
             {
-                TargetOut(_closestTarget);
                 return;
             }
 
@@ -69,26 +59,28 @@ public class Stickman : Targetable
                 GoTowards(_closestTarget.transform.position);
             }
         }
-        if(_closestTarget != null)
-        {
-            Debug.DrawLine(transform.position, _closestTarget.transform.position, _owner.mainColor);
-        }
     }
 
-    public void Initialize(Player owner, float health, Vector3 destination)
+    public void Initialize(Player owner, float health, Vector3 position, Vector3 destination)
     {
+
         _animator.Rebind();
         _animator.Update(0f);
-        _owner = owner;
-        name = owner.number.ToString();
-        _damage = owner.damage;
-        _skin.material.color = _owner.mainColor;
+        if (_owner == null || _owner.number != owner.number)
+        {
+            _owner = owner;
+            name = owner.number.ToString();
+            _damage = owner.damage;
+
+            _attackTimer.Duration = owner.attackCooldown;
+            _skin.material.color = _owner.mainColor;
+        }
 
         _attacking = false;
         _currentHealth = health;
-        _nearTargets = new KdTree<Targetable>();
-
-        _closestTarget = WorldManager.Instance.ClosestFlag(this);
+        _worldManager.AddTarget(this);
+        _closestTarget = _worldManager.ClosestTarget(this);
+        _navAgent.Warp(position);
         if(_closestTarget != null)
             GoTowards(_closestTarget.transform.position);
     }
@@ -101,26 +93,14 @@ public class Stickman : Targetable
         if (_currentHealth <= 0)
             Dispose();
     }
-    public void TargetDetected(Targetable target)
-    {
-        if (_closestTarget == null)
-            return;
-        if (!Physics.Linecast(transform.position, target.transform.position, StaticValues.StickmanLayer))
-        {
-            //there is something in the way
-            _nearTargets.Add(target);
-        }
-    }
-    public void TargetOut(Targetable target)
-    {
-        _nearTargets.RemoveAll((x) => x == target);
-    }
     private void Dispose()
     {
         if(_disposable == null)
         {
             _disposable = GetComponent<IDisposable>();
         }
+        if(_closestTarget != null)
+            _worldManager.RemoveTarget(this);
         _disposable.Dispose();
         _attackTimer.Stop();
     }
@@ -139,18 +119,24 @@ public class Stickman : Targetable
         _attacking = false;
         _attackTimer.Stop();
         _animator.SetBool("Attack", false);
-        TargetOut(_closestTarget);
         _closestTarget = null;
     }
     private void Hit()
     {
         if (!_attacking || !gameObject.activeSelf)
             return;
-        _closestTarget.GetHit(this);
-        if (_closestTarget.PlayerOwner.number == _owner.number)
-            Dispose();
+        if (Vector3.Distance(_closestTarget.transform.position, transform.position) > 0.3f)
+        {
+            StopAttack();
+        }
         else
-            _attackTimer.Run();
-
+        {
+            transform.LookAt(_closestTarget.transform.position);
+            _closestTarget.GetHit(this);
+            if (_closestTarget.name[0] == 'F')
+                Dispose();
+            else
+                _attackTimer.Run();
+        }
     }
 }

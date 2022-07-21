@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,10 +8,14 @@ public class Flag : Targetable
     private Material _material;
     private IDisposable _disposable;
     private HashSet<Circle> _circles;
+    private WorldManager _worldManager;
+    public int _health;
+
     override public Player PlayerOwner
     {
         get { return _circles.Count > 0 ? _circles.First().OwnerPlayer : null; }
     }
+
     public void Initialize(Circle circle)
     {
         if( _material == null)
@@ -24,14 +29,16 @@ public class Flag : Targetable
             }
 
             _circles = new HashSet<Circle>();
+            _worldManager = WorldManager.Instance;
         }
+        _health = 0;
         _circles?.Clear();
-        _circles.Add(circle);
+        AddCircle(circle);
 
         SetColor(circle.OwnerPlayer.mainColor);
         SettlePosition();
 
-        EventsPool.FlagPlacedEvent.Invoke(this);
+        _worldManager.AddTarget(this);
     }
     public void SettlePosition()
     {
@@ -58,8 +65,8 @@ public class Flag : Targetable
     }
     public void AddCircle(Circle circle)
     {
-        int cnt = _circles.Count;
         _circles.Add(circle);
+        _health++;
     }
     public void Dispose()
     {
@@ -68,24 +75,28 @@ public class Flag : Targetable
         if (gameObject.activeSelf)
         {
             _disposable.Dispose();
-            EventsPool.FlagRemovedEvent.Invoke(this);
+            _worldManager.RemoveTarget(this);
         }
     }
     public void Occupy(Stickman stick)
     {
-        EventsPool.FlagRemovedEvent.Invoke(this);
-        foreach(var c in _circles)
+        _health--;
+        if (_health > 0)
+            return;
+
+        _worldManager.RemoveTarget(this);
+        foreach (var c in _circles)
         {
             c.Occupy(stick.PlayerOwner);
         }
         SetColor(stick.PlayerOwner.mainColor);
-        EventsPool.FlagPlacedEvent.Invoke(this);
+        _worldManager.AddTarget(this);
+        _health = _circles.Count;
     }
     private void SetColor(Color cc)
     {
         _material.color = new Color(cc.r - 0.1f, cc.g - 0.1f, cc.b - 0.1f);
     }
-
     public override void GetHit(Stickman stick)
     {
         Occupy(stick);

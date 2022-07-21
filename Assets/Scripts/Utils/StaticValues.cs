@@ -7,4 +7,5 @@ public static class StaticValues
     public readonly static int CircleLayer = LayerMask.NameToLayer("Circle");
     public readonly static int SpawnerLayer = LayerMask.NameToLayer("Spawner");
     public readonly static int StickmanLayer = LayerMask.NameToLayer("Stickman");
+    public readonly static int ObstacleLayer = LayerMask.NameToLayer("Obstacle");
 }

@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public class TapPanel : MonoBehaviour
 {
-
     private CircleSpawner _spawnerInstance;
     private Vector3 _position;
     private void Awake()
@@ -14,7 +13,6 @@ public class TapPanel : MonoBehaviour
         entry.eventID = EventTriggerType.PointerDown;
         entry.callback.AddListener(GrowCircle);
         eventTrigger.triggers.Add(entry);
-
 
         EventTrigger.Entry _stopGrowEntry = new EventTrigger.Entry();
         _stopGrowEntry.eventID = EventTriggerType.PointerUp;

@@ -50,10 +50,16 @@ MonoBehaviour:
   playersList:
   - mainColor: {r: 0.23268063, g: 0.59508204, b: 0.8113208, a: 1}
     number: 0
-    damage: 2
+    damage: 1.2
+    attackCooldown: 0.5
   - mainColor: {r: 1, g: 0, b: 0, a: 1}
     number: 1
     damage: 1
+    attackCooldown: 0.5
+  - mainColor: {r: 1, g: 0.70520693, b: 0, a: 1}
+    number: 2
+    damage: 1
+    attackCooldown: 0.5
 --- !u!114 &7214718027044928207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +88,4 @@ MonoBehaviour:
   flagsPool: {fileID: 11400000, guid: 368e19f5b797bc3448c2d60e014de5b1, type: 2}
   markersPool: {fileID: 11400000, guid: 17120b18b357b064bbbc28608af655be, type: 2}
   circlesPool: {fileID: 11400000, guid: 2d93312d51558b7489e66585afff65fe, type: 2}
+  aiPool: {fileID: 11400000, guid: 7f0a896fd4da17c43928ea324e9b0c71, type: 2}

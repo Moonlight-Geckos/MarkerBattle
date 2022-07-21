@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1070096380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1070096381}
+  - component: {fileID: 1070096382}
+  m_Layer: 0
+  m_Name: AIParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1070096381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070096380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5765573, y: -11.214662, z: 23.369112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4475234246051089673}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070096382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070096380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fdda089a1f264383a8cfc3f7c91bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnCooldown: 3
 --- !u!1 &4475234246051089672
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,12 +69,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4475234246051089672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19092543, y: -0.18539563, z: 0.11183338}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4475234246572790630}
   - {fileID: 4475234247766662362}
+  - {fileID: 1070096381}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,6 +165,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214718027044928193, guid: 5a1a7050bee27b54a93f343c1bf0041c,
+        type: 3}
+      propertyPath: playersList.Array.data[2].mainColor.b
+      value: 0.49646854
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214718027044928193, guid: 5a1a7050bee27b54a93f343c1bf0041c,
+        type: 3}
+      propertyPath: playersList.Array.data[2].mainColor.g
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7214718027044928206, guid: 5a1a7050bee27b54a93f343c1bf0041c,
         type: 3}

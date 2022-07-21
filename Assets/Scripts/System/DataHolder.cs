@@ -15,10 +15,19 @@ public class DataHolder : MonoBehaviour
     #endregion Public
 
     private static DataHolder _instance;
+    private static int _uniqueNum = 0;
 
     public static DataHolder Instance
     {
         get { return _instance; }
+    }
+    public static int UniqueNum
+    {
+        get {
+            if (_uniqueNum > 1000000)
+                _uniqueNum = 0;
+            return _uniqueNum++;
+        }
     }
     public List<SkinItem> AllSkins
     {

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public class WorldManager : MonoBehaviour
@@ -12,10 +14,9 @@ public class WorldManager : MonoBehaviour
     private GameObject worldEdge;
 
     private Camera _camera;
-
-    private KdTree<Flag>[] _tree;
-
-    private int _playersCount;
+    [SerializeField]
+    List<KdTree<Targetable>> _trees;
+    List<Player> _players;
 
     private static WorldManager _instance;
 
@@ -56,45 +57,57 @@ public class WorldManager : MonoBehaviour
         }
         _instance = this;
         _camera = Camera.main;
-        _playersCount = DataHolder.Instance.Players.Count;
-        _tree = new KdTree<Flag>[_playersCount];
-        for (int i = 0; i < _playersCount; i++)
-        {
-            _tree[i] = new KdTree<Flag>();
-        }
+        _trees = new List<KdTree<Targetable>>();
 
-        void RemoveFlag(Flag flag)
+        _players = DataHolder.Instance.Players;
+        for (int i = 0; i < _players.Count; i++)
         {
-            for (int i = 0; i < _playersCount; i++)
-            {
-                if (i != flag.PlayerOwner.number)
-                    _tree[i].RemoveAll((x) => x.Equals(flag));
-            }
+            _players[i]._targetsTree = new KdTree<Targetable>();
+            _trees.Add(_players[i]._targetsTree);
         }
-        void AddFlag(Flag flag)
-        {
-            for (int i = 0; i < _playersCount; i++)
-            {
-                if (i != flag.PlayerOwner.number)
-                    _tree[i].Add(flag);
-            }
-        }
-        EventsPool.FlagRemovedEvent.AddListener(RemoveFlag);
-        EventsPool.FlagPlacedEvent.AddListener(AddFlag);
 
         SetEdges();
     }
-    private void Start()
+    public Targetable ClosestTarget(Stickman stickman)
     {
+        var target = _trees[stickman.PlayerOwner.number].FindClosest(stickman.transform.position);
+        int num = 5;
+        while(num > 0 && target != null && !target.gameObject.activeSelf)
+        {
+            _trees[stickman.PlayerOwner.number].RemoveAll((x) => x.Equals(target));
+            target = _trees[stickman.PlayerOwner.number].FindClosest(stickman.transform.position);
+            num--;
+        }
+        return target;
     }
-    public Flag ClosestFlag(Stickman stickman)
+    public void AddTarget(Targetable target)
     {
-        return _tree[stickman.PlayerOwner.number].FindClosest(stickman.transform.position);
+        for (int i = 0; i < _players.Count; i++)
+        {
+            if (i != target.PlayerOwner.number)
+                _trees[i].Add(target);
+        }
+    }
+    public void RemoveTarget(Targetable target)
+    {
+        for (int i = 0; i < _players.Count; i++)
+        {
+            if (i != target.PlayerOwner.number)
+            {
+                _trees[i].RemoveAll((x) => x.Equals(target));
+                if (_trees[i].Count == 0)
+                {
+                    EventsPool.NoMoreTargetsEvent.Invoke(i);
+                }
+            }
+        }
     }
     private void Update()
     {
-        Debug.DrawLine(LeftBottomCorner, RightTopCorner, Color.white);
-        Debug.DrawLine(RightBottomCorner, LeftTopCorner, Color.white);
+        foreach(var tree in _trees)
+        {
+            tree.UpdatePositions();
+        }
     }
     private void SetEdges()
     {
