@@ -17,6 +17,7 @@ public class Stickman : Targetable
     private Timer _attackTimer;
     private Targetable _closestTarget;
     private WorldManager _worldManager;
+    private ParticlesPool _splashPool;
 
     override public Player PlayerOwner
     {
@@ -29,6 +30,9 @@ public class Stickman : Targetable
         _animator = GetComponentInChildren<Animator>();
         _skin = GetComponentInChildren<SkinnedMeshRenderer>();
         _navAgent = GetComponent<NavMeshAgent>();
+
+        _splashPool = PoolsPool.Instance.SplashPool;
+
         _attackTimer = TimersPool.Instance.Pool.Get();
         _attackTimer.AddTimerFinishedEventListener(Hit);
     }
@@ -91,7 +95,10 @@ public class Stickman : Targetable
 
         _currentHealth-=stick._damage;
         if (_currentHealth <= 0)
+        {
+            Explode();
             Dispose();
+        }
     }
     private void Dispose()
     {
@@ -134,9 +141,18 @@ public class Stickman : Targetable
             transform.LookAt(_closestTarget.transform.position);
             _closestTarget.GetHit(this);
             if (_closestTarget.name[0] == 'F')
+            {
+                Explode();
                 Dispose();
+            }
             else
                 _attackTimer.Run();
         }
+    }
+    private void Explode()
+    {
+        var ps = _splashPool.Pool.Get();
+        ps.transform.position = transform.position;
+        ps.Initialize(PlayerOwner.mainColor);
     }
 }

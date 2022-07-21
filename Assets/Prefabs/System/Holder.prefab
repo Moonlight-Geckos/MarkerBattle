@@ -89,3 +89,4 @@ MonoBehaviour:
   markersPool: {fileID: 11400000, guid: 17120b18b357b064bbbc28608af655be, type: 2}
   circlesPool: {fileID: 11400000, guid: 2d93312d51558b7489e66585afff65fe, type: 2}
   aiPool: {fileID: 11400000, guid: 7f0a896fd4da17c43928ea324e9b0c71, type: 2}
+  splashPool: {fileID: 11400000, guid: 80105938538d502448ac75037746c371, type: 2}
