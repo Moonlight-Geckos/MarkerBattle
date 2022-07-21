@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 3143874075496823501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5082478, y: 0.5082478, z: 0.5082478}
+  m_LocalScale: {x: 0.79124016, y: 0.79124016, z: 0.79124016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3143874075609171876}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -89}
+  m_AnchoredPosition: {x: 0, y: -183}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3143874075496823498
@@ -260,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3143874076191698126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -519,6 +519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoinHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407234329850154584, guid: f48c177f5611a5642929f72c01c06437,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3407234329850154585, guid: f48c177f5611a5642929f72c01c06437,
         type: 3}
