@@ -72,7 +72,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickmenPool: {fileID: 11400000, guid: b2179eece190fce4db928f4b72b888ea, type: 2}
-  spawnCellSize: 0.65
 --- !u!114 &234651352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,5 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f16198a9f4a5dd4a96538ec45b56290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCellSize: 0.7
   worldEdge: {fileID: 6068306482254983732, guid: 82ba3fe3b6fae30469b3cdc5700ececc,
     type: 3}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rubber_1
+  m_Name: Wood
   m_Shader: {fileID: 4800000, guid: 783c1fa41c28f034c817da1b8d75b350, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,9 +41,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1008b05f731efde4e9b842d43b9d0e3e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 60a3e1915d5810140b636148dd1ab0d0, type: 3}
+        m_Scale: {x: 1, y: 0.56}
+        m_Offset: {x: 0, y: -0.05}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -75,6 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.43454072, g: 0.57693744, b: 0.990566, a: 1}
+    - _Color: {r: 0.9622642, g: 0.95127136, b: 0.9395693, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
