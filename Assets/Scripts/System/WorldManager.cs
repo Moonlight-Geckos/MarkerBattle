@@ -48,6 +48,10 @@ public class WorldManager : MonoBehaviour
     {
         get { return spawnCellSize; }
     }
+    public List<KdTree<Targetable>> Trees
+    {
+        get { return _trees; }
+    }
     void Awake()
     {
         if(_instance != null && _instance != this)

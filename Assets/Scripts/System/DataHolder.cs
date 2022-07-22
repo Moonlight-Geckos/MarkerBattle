@@ -39,6 +39,7 @@ public class DataHolder : MonoBehaviour
     }
 
     #region Methods
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -51,7 +52,6 @@ public class DataHolder : MonoBehaviour
             allSkins?.Sort((x, y) => x.skinNumber.CompareTo(y.skinNumber));
             playersList?.Sort((x, y) => x.number.CompareTo(y.number));
         }
-
     }
 
     #endregion

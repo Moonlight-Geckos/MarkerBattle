@@ -15,9 +15,20 @@ public class AIParent : MonoBehaviour
     {
         EventsPool.PlayerStoppedDrawingEvent.AddListener(SetupAIPlayer);
         EventsPool.NoMoreTargetsEvent.AddListener((int u) => _timer.Stop());
+        EventsPool.GameFinishedEvent.AddListener((bool u) => _timer.Stop());
     }
     private void SetupAIPlayer()
     {
+
+        var _worldManager = WorldManager.Instance;
+        for (int i = 0; i < _worldManager.Trees.Count; i++)
+        {
+            if (_worldManager.Trees[i].Count == 0)
+            {
+                return;
+            }
+        }
+
         _timer = TimersPool.Instance.Pool.Get();
         _timer.Duration = turnCooldown;
         _timer.AddTimerFinishedEventListener(AITurn);

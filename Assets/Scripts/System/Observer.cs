@@ -37,8 +37,16 @@ public class Observer : MonoBehaviour
             _someoneDrawing = 0;
             void StartGame()
             {
-                _started = true;
                 _worldManager = WorldManager.Instance;
+                for (int i = 0; i < _worldManager.Trees.Count; i++)
+                {
+                    if (_worldManager.Trees[i].Count == 0)
+                    {
+                        return;
+                    }
+                }
+                _started = true;
+                EventsPool.PlayerStoppedDrawingEvent.RemoveListener(StartGame);
             }
             void FinishGame(bool w)
             {
@@ -51,29 +59,36 @@ public class Observer : MonoBehaviour
             }
             void PlayerStoppedDrawing()
             {
-                _someoneDrawing--;
+                if(_someoneDrawing > 0)
+                    _someoneDrawing--;
             }
-            EventsPool.GameStartedEvent.AddListener(StartGame);
             EventsPool.GameFinishedEvent.AddListener(FinishGame);
-            EventsPool.NoMoreTargetsEvent.AddListener(CheckForFinish);
             EventsPool.PlayerDrawingEvent.AddListener(PlayerDrawing);
             EventsPool.PlayerStoppedDrawingEvent.AddListener(PlayerStoppedDrawing);
+            EventsPool.PlayerStoppedDrawingEvent.AddListener(StartGame);
         }
     }
-    private void CheckForFinish(int player)
+    private void CheckForFinish()
     {
         if (!_started)
             return;
         if (_someoneDrawing > 0)
             return;
-        else
+        for (int i = 0; i < _worldManager.Trees.Count; i++)
         {
-            if (player == 0)
-                EventsPool.GameFinishedEvent.Invoke(true);
-            else
-                EventsPool.GameFinishedEvent.Invoke(false);
-            _started = false;
-            _finished = true;
+            if (_worldManager.Trees[i].Count == 0)
+            {
+                if (i == 0)
+                    EventsPool.GameFinishedEvent.Invoke(true);
+                else
+                    EventsPool.GameFinishedEvent.Invoke(false);
+                _started = false;
+                _finished = true;
+            }
         }
+    }
+    private void LateUpdate()
+    {
+        CheckForFinish();
     }
 }

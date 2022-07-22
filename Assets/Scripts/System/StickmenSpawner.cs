@@ -22,6 +22,15 @@ public class StickmenSpawner : MonoBehaviour
     }
     private void StartSpawning()
     {
+
+        var _worldManager = WorldManager.Instance;
+        for (int i = 0; i < _worldManager.Trees.Count; i++)
+        {
+            if (_worldManager.Trees[i].Count == 0)
+            {
+                return;
+            }
+        }
         _spawnTimer.Run();
         EventsPool.PlayerStoppedDrawingEvent.RemoveListener(StartSpawning);
     }
