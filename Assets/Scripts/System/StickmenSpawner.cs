@@ -5,6 +5,9 @@ public class StickmenSpawner : MonoBehaviour
     [SerializeField]
     private StickmenPool stickmenPool;
 
+    [SerializeField]
+    private float spawnCooldown = 7f;
+
     private Timer _spawnTimer;
     private WorldManager _worldManager;
     private int _spawnerLayerMask;
@@ -13,7 +16,7 @@ public class StickmenSpawner : MonoBehaviour
         _spawnerLayerMask = (1 << StaticValues.CircleLayer);
         _worldManager = WorldManager.Instance;
         _spawnTimer = TimersPool.Instance.Pool.Get();
-        _spawnTimer.Duration = 10f;
+        _spawnTimer.Duration = spawnCooldown;
         _spawnTimer.AddTimerFinishedEventListener(Spawn);
         EventsPool.PlayerStoppedDrawingEvent.AddListener(StartSpawning);
     }
