@@ -1010,6 +1010,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1306612449579980521}
     m_Modifications:
+    - target: {fileID: 4815180111234936489, guid: 4754375899b36f9449f1157dfabd153e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844517525122829325, guid: 4754375899b36f9449f1157dfabd153e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8844517525122829327, guid: 4754375899b36f9449f1157dfabd153e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1129,6 +1139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844517526101528677, guid: 4754375899b36f9449f1157dfabd153e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4754375899b36f9449f1157dfabd153e, type: 3}

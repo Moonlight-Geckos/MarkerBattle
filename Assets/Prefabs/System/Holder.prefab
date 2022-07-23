@@ -56,10 +56,6 @@ MonoBehaviour:
     number: 1
     damage: 1
     attackCooldown: 0.5
-  - mainColor: {r: 1, g: 0.70520693, b: 0, a: 1}
-    number: 2
-    damage: 1
-    attackCooldown: 0.5
 --- !u!114 &7214718027044928207
 MonoBehaviour:
   m_ObjectHideFlags: 0
