@@ -18,6 +18,7 @@ public class Timer
 
 	public float Duration
     {
+		get { return totalSeconds; }
 		set
         {
 			if (!running)
@@ -25,6 +26,10 @@ public class Timer
 				totalSeconds = value;
 			}
 		}
+	}
+	public float Elapsed
+	{
+		get { return elapsedSeconds; }
 	}
 
 	public bool Running

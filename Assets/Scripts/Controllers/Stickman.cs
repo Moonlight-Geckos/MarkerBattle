@@ -40,7 +40,7 @@ public class Stickman : Targetable
     {
         if (_attacking)
         {
-            if (!_closestTarget.gameObject.activeSelf || _closestTarget.PlayerOwner.number == _owner.number)
+            if (_closestTarget == null || !_closestTarget.gameObject.activeSelf || _closestTarget.PlayerOwner.number == _owner.number)
             {
                 StopAttack();
             }

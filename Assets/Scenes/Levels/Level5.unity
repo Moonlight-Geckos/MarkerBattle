@@ -751,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 7490852866047250757, guid: d6b7253baf11a6541906e7c0b3f9e3f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.032
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7490852866047250757, guid: d6b7253baf11a6541906e7c0b3f9e3f8,
         type: 3}
@@ -797,6 +797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ruler
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835993227370351615, guid: d6b7253baf11a6541906e7c0b3f9e3f8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b7253baf11a6541906e7c0b3f9e3f8, type: 3}

@@ -8,9 +8,14 @@ public class StickmenSpawner : MonoBehaviour
     [SerializeField]
     private float spawnCooldown = 7f;
 
-    private Timer _spawnTimer;
+    private static Timer _spawnTimer;
     private WorldManager _worldManager;
     private int _spawnerLayerMask;
+
+    public static Timer SpawningTimer
+    {
+        get { return _spawnTimer; }
+    }
     private void Start()
     {
         _spawnerLayerMask = (1 << StaticValues.CircleLayer);
@@ -19,10 +24,10 @@ public class StickmenSpawner : MonoBehaviour
         _spawnTimer.Duration = spawnCooldown;
         _spawnTimer.AddTimerFinishedEventListener(Spawn);
         EventsPool.PlayerStoppedDrawingEvent.AddListener(StartSpawning);
+        EventsPool.GameFinishedEvent.AddListener(StopSpawning);
     }
     private void StartSpawning()
     {
-
         var _worldManager = WorldManager.Instance;
         for (int i = 0; i < _worldManager.Trees.Count; i++)
         {
@@ -33,6 +38,10 @@ public class StickmenSpawner : MonoBehaviour
         }
         _spawnTimer.Run();
         EventsPool.PlayerStoppedDrawingEvent.RemoveListener(StartSpawning);
+    }
+    private void StopSpawning(bool w)
+    {
+        _spawnTimer.Stop();
     }
     private void Spawn()
     {

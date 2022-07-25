@@ -672,7 +672,7 @@ PrefabInstance:
     - target: {fileID: 8403394187402642297, guid: 3e80d87b80705cb4b9bfac696af04808,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403394187402642297, guid: 3e80d87b80705cb4b9bfac696af04808,
         type: 3}
@@ -718,6 +718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scissors
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211280506107713987, guid: 3e80d87b80705cb4b9bfac696af04808,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e80d87b80705cb4b9bfac696af04808, type: 3}
