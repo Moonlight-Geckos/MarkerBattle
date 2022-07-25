@@ -433,6 +433,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8828500622466506295, guid: 29a786ab3b5e128459cf79ebed688f8c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828500622466506295, guid: 29a786ab3b5e128459cf79ebed688f8c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8845124073683373137, guid: 29a786ab3b5e128459cf79ebed688f8c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1053,6 +1063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rubber
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320949732374504739, guid: d1babea36b351c34ca31f0569f1d1fe8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8661023647737069465, guid: d1babea36b351c34ca31f0569f1d1fe8,
         type: 3}
