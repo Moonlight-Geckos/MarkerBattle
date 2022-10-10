@@ -19,6 +19,9 @@ public class Stickman : Targetable
     private WorldManager _worldManager;
     private ParticlesPool _splashPool;
 
+    //ADDED THIS VARIABLE FOR FUNCTIONALITY COMMENTED BELOW
+    private StickmenSpawner _stickmenSpawner;
+
     override public Player PlayerOwner
     {
         get { return _owner; }
@@ -27,6 +30,7 @@ public class Stickman : Targetable
     private void Awake()
     {
         _worldManager = WorldManager.Instance;
+        _stickmenSpawner = _worldManager.gameObject.GetComponent<StickmenSpawner>();
         _animator = GetComponentInChildren<Animator>();
         _skin = GetComponentInChildren<SkinnedMeshRenderer>();
         _navAgent = GetComponent<NavMeshAgent>();
@@ -77,7 +81,17 @@ public class Stickman : Targetable
             _damage = owner.damage;
 
             _attackTimer.Duration = owner.attackCooldown;
-            _skin.material.color = _owner.mainColor;
+
+            // ADDED THIS HERE SO THAT MATERIAL COLOR CHANGES ONLY IF THE POOLS ARE THE SAME
+            // MEANING SAME MODELS FOR ALLY AND ENEMY, ORIGINALLY WAS AS BELOW
+            //_skin.material.color = _owner.mainColor;
+
+            if(_stickmenSpawner.stickmenPool == _stickmenSpawner.stickmenPoolEnemy)
+            {
+                _skin.material.color = _owner.mainColor;
+            }
+
+
         }
 
         _attacking = false;

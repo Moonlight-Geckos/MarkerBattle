@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class StickmenSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private StickmenPool stickmenPool;
+    // CREATED SECOND POOL HERE
+    // Changed both to public to access them in Stickman script
+    public StickmenPool stickmenPool;
+    public StickmenPool stickmenPoolEnemy;
 
     [SerializeField]
     private float spawnCooldown = 7f;
@@ -61,8 +63,21 @@ public class StickmenSpawner : MonoBehaviour
                     var circle = results[0].GetComponent<Circle>();
                     if (!circle.Active)
                         continue;
-                    var stickman = stickmenPool.Pool.Get();
-                    stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
+
+                    // CUSTOM CODE HERE TO SPAWN DIFFERENT MODELS
+                    if (circle.OwnerPlayer.number == 0)
+                    {
+                        var stickman = stickmenPool.Pool.Get();
+                        stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
+                    }
+                    else if (circle.OwnerPlayer.number == 1)
+                    {
+                        var stickman = stickmenPoolEnemy.Pool.Get();
+                        stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
+                    }
+
+                    //var stickman = stickmenPool.Pool.Get();
+                    //stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
                 }
             }
         }

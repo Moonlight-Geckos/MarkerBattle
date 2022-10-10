@@ -63,6 +63,7 @@ public class TimersPool : MonoBehaviour
     }
     private void Update()
     {
-        _updateTimersEvent.Invoke(Time.deltaTime);
+        // This can sometimes be null and needs the ? to avoid null refs
+        _updateTimersEvent?.Invoke(Time.deltaTime);
     }
 }

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cef1072a36bd840bbf57c1ec7353e0, type: 3}
+  m_Name: SoldierEnemyPool
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6901261491790373492, guid: b54440ac319295242b5e88fc20892001, type: 3}
+  maxPoolSize: 100

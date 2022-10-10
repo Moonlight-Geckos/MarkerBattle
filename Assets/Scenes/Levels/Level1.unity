@@ -966,6 +966,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3079852056336632948, guid: 623343955e487da48a8be714720ea758,
+        type: 3}
+      propertyPath: stickmenPoolEnemy
+      value: 
+      objectReference: {fileID: 11400000, guid: b2179eece190fce4db928f4b72b888ea,
+        type: 2}
     - target: {fileID: 4475234246051089672, guid: 623343955e487da48a8be714720ea758,
         type: 3}
       propertyPath: m_Name
