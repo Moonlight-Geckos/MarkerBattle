@@ -6,6 +6,7 @@ public class StickmenSpawner : MonoBehaviour
     // Changed both to public to access them in Stickman script
     public StickmenPool stickmenPool;
     public StickmenPool stickmenPoolEnemy;
+    public StickmenPool stickmenPoolEnemy2;
 
     [SerializeField]
     private float spawnCooldown = 7f;
@@ -73,6 +74,11 @@ public class StickmenSpawner : MonoBehaviour
                     else if (circle.OwnerPlayer.number == 1)
                     {
                         var stickman = stickmenPoolEnemy.Pool.Get();
+                        stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
+                    }
+                    else if(circle.OwnerPlayer.number == 1 && stickmenPoolEnemy2 != null)
+                    {
+                        var stickman = stickmenPoolEnemy2.Pool.Get();
                         stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
                     }
 

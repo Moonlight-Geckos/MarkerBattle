@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
     private static Camera _camera;
 
     #endregion
+
+    // Sound effect stuff
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip[] audioClips = new AudioClip[4];
+
     static public GameManager Instance
     {
         get { return _instance; }
@@ -47,6 +54,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EventsPool.UpdateUIEvent.Invoke();
+        audioSource = GetComponent<AudioSource>();
     }
     private void StartGame()
     {
@@ -56,5 +64,12 @@ public class GameManager : MonoBehaviour
     {
         _finished = true;
         EventsPool.ClearPoolsEvent.Invoke();
+    }
+
+    public void PlayDeathSound()
+    {
+        int rand = UnityEngine.Random.Range(0, 3);
+        AudioClip clip = audioClips[rand];
+        audioSource.PlayOneShot(clip);
     }
 }

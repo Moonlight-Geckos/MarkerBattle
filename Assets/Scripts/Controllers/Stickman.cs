@@ -22,6 +22,10 @@ public class Stickman : Targetable
     //ADDED THIS VARIABLE FOR FUNCTIONALITY COMMENTED BELOW
     private StickmenSpawner _stickmenSpawner;
 
+    // Event to track when a strickman dies
+    //public Action OnDeath;
+    //public event Action OnDeathEvent;
+
     override public Player PlayerOwner
     {
         get { return _owner; }
@@ -39,6 +43,7 @@ public class Stickman : Targetable
 
         _attackTimer = TimersPool.Instance.Pool.Get();
         _attackTimer.AddTimerFinishedEventListener(Hit);
+
     }
     private void Update()
     {
@@ -86,7 +91,7 @@ public class Stickman : Targetable
             // MEANING SAME MODELS FOR ALLY AND ENEMY, ORIGINALLY WAS AS BELOW
             //_skin.material.color = _owner.mainColor;
 
-            if(_stickmenSpawner.stickmenPool == _stickmenSpawner.stickmenPoolEnemy)
+            if (_stickmenSpawner.stickmenPool == _stickmenSpawner.stickmenPoolEnemy)
             {
                 _skin.material.color = _owner.mainColor;
             }
@@ -99,7 +104,7 @@ public class Stickman : Targetable
         _worldManager.AddTarget(this);
         _closestTarget = _worldManager.ClosestTarget(this);
         _navAgent.Warp(position);
-        if(_closestTarget != null)
+        if (_closestTarget != null)
             GoTowards(_closestTarget.transform.position);
     }
     override public void GetHit(Stickman stick)
@@ -107,7 +112,7 @@ public class Stickman : Targetable
         if (_currentHealth <= 0 || !gameObject.activeSelf)
             return;
 
-        _currentHealth-=stick._damage;
+        _currentHealth -= stick._damage;
         if (_currentHealth <= 0)
         {
             Explode();
@@ -116,11 +121,11 @@ public class Stickman : Targetable
     }
     private void Dispose()
     {
-        if(_disposable == null)
+        if (_disposable == null)
         {
             _disposable = GetComponent<IDisposable>();
         }
-        if(_closestTarget != null)
+        if (_closestTarget != null)
             _worldManager.RemoveTarget(this);
         _disposable.Dispose();
         _attackTimer.Stop();
@@ -158,6 +163,9 @@ public class Stickman : Targetable
             {
                 Explode();
                 Dispose();
+
+                //sound effects go here
+                GameManager.Instance.PlayDeathSound();
             }
             else
                 _attackTimer.Run();
