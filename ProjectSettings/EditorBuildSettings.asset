@@ -5,51 +5,75 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level1.unity
     guid: 5450fb7d2c3b57a44af42fa68671c713
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level2.unity
     guid: 46504ed95e54ea342b202f5a2d43450b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level3.unity
     guid: f7103557902a59b46b61fee7c782e714
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level4.unity
     guid: 31c9548d4d911fd45868aca5c2dcf84c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level5.unity
     guid: eff912c2240f4bb4b942953eb3ca3f14
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level6.unity
     guid: 4e2fadff24e85844485f857e225f930f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level7.unity
     guid: efa4a58e115a8a642b644d5795b1366b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level8.unity
     guid: 6598fe42230034f4c950feed83b64d88
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level9.unity
     guid: 796825d0a5d75d54ab9f2ae49ef5ff03
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level10.unity
     guid: 637f5363af71d0d41bb99342267a2b09
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level11.unity
     guid: cdffa9a35f713f846a4733848fd389a4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level12.unity
     guid: f21236b7724f7ee45a3523d5ad269cdf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level13.unity
     guid: a5e779b1910174a418bd471a7d5f8a4b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level14.unity
     guid: 18e1c9f8468ebbe40ad0a10ced22f15f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level15.unity
     guid: f34cb813c127a2f4887413f04c026ebc
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_1_PoliceTheme.unity
+    guid: 0dc68ea1f0f80a1448366eb7806599f8
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_2_PoliceTheme.unity
+    guid: 28965a5b9cc2826499dedb6b19deb788
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_3_ AliensTheme.unity
+    guid: 692faa331a155b44790a33b1b4cdd0e8
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_4_AlienTheme.unity
+    guid: b61a5c5a10d1dfa438447cb9246611d1
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_5_SoldersTheme.unity
+    guid: 15ef312a46ef785428012c97f44bc568
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_6_SoldiersTheme.unity
+    guid: 5533cb4c4982f5442a334b42827b4c56
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_7_Thanos.unity
+    guid: 96496b7a88f855e42a7703abe292dfa4
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsForAds/Level_8_Thanos.unity
+    guid: db04a66e6c2055f449363b193db6619f
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: ead2f9f02292094448a1d304f48bae7e, type: 2}
