@@ -117,8 +117,16 @@ public class Stickman : Targetable
         {
             Explode();
             Dispose();
+
             //sound effects go here
-            GameManager.Instance.PlayDeathSound();
+
+            int rand = UnityEngine.Random.Range(0, 2);
+
+            if(rand == 1)
+            {
+                GameManager.Instance.PlayDeathSound();
+            }
+            
         }
     }
     private void Dispose()

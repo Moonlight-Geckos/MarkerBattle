@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayDeathSound()
     {
-        int rand = UnityEngine.Random.Range(0, 3);
+        int rand = UnityEngine.Random.Range(0, 4);
         AudioClip clip = audioClips[rand];
         audioSource.PlayOneShot(clip);
     }
