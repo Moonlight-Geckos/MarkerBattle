@@ -117,6 +117,8 @@ public class Stickman : Targetable
         {
             Explode();
             Dispose();
+            //sound effects go here
+            GameManager.Instance.PlayDeathSound();
         }
     }
     private void Dispose()
@@ -163,9 +165,6 @@ public class Stickman : Targetable
             {
                 Explode();
                 Dispose();
-
-                //sound effects go here
-                GameManager.Instance.PlayDeathSound();
             }
             else
                 _attackTimer.Run();

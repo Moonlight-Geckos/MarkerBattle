@@ -1248,7 +1248,7 @@ PrefabInstance:
         type: 3}
       propertyPath: stickmenPoolEnemy2
       value: 
-      objectReference: {fileID: 11400000, guid: 53b9eefe075ba0b41966850eef4f70cd,
+      objectReference: {fileID: 11400000, guid: 4fd5b1a7aa55cd942a2da0730248e055,
         type: 2}
     - target: {fileID: 4475234246051089672, guid: 623343955e487da48a8be714720ea758,
         type: 3}
