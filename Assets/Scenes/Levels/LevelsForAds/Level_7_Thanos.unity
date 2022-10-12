@@ -154,6 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3705321960016218201, guid: 4ca351c651bd4fd4bbff39e0e5febc36,
         type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705321960016218201, guid: 4ca351c651bd4fd4bbff39e0e5febc36,
+        type: 3}
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
@@ -171,6 +176,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3923372969408691020, guid: a40b288ba79e1c146bb072359882855c,
         type: 3}
       propertyPath: m_RootOrder
@@ -230,6 +245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Rock_Flat_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925816746355091698, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40b288ba79e1c146bb072359882855c, type: 3}
@@ -1321,6 +1341,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3923372969408691020, guid: a40b288ba79e1c146bb072359882855c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1396,6 +1426,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Rock_Flat_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3925816746355091698, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40b288ba79e1c146bb072359882855c, type: 3}
 --- !u!1001 &1986407653
@@ -1405,6 +1440,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3923372969408691020, guid: a40b288ba79e1c146bb072359882855c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1479,6 +1524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Rock_Flat_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925816746355091698, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40b288ba79e1c146bb072359882855c, type: 3}
@@ -1639,6 +1689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Rock_Flat_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1078872419902164, guid: e57caa58d7f5b6c4b986a5c307bdefd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4179696422240360, guid: e57caa58d7f5b6c4b986a5c307bdefd5, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1686,12 +1740,12 @@ PrefabInstance:
     - target: {fileID: 23803429379758834, guid: e57caa58d7f5b6c4b986a5c307bdefd5,
         type: 3}
       propertyPath: m_CastShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23803429379758834, guid: e57caa58d7f5b6c4b986a5c307bdefd5,
         type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57caa58d7f5b6c4b986a5c307bdefd5, type: 3}
@@ -1838,6 +1892,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904585779767526392, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3923372969408691020, guid: a40b288ba79e1c146bb072359882855c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1897,6 +1961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Rock_Flat_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925816746355091698, guid: a40b288ba79e1c146bb072359882855c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40b288ba79e1c146bb072359882855c, type: 3}
