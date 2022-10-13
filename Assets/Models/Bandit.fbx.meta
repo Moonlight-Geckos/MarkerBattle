@@ -6,7 +6,47 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AntagonistColor
+    second: {fileID: 2100000, guid: 39b2d8c112d1d2a44af50489c92e5889, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceBelt.001
+    second: {fileID: 2100000, guid: e35997de40fa9a541984363762754109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceBoots.001
+    second: {fileID: 2100000, guid: c6c1a287eaac61e4381f84b8528690c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThiefPants
+    second: {fileID: 2100000, guid: e35997de40fa9a541984363762754109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert54
+    second: {fileID: 2100000, guid: c6c1a287eaac61e4381f84b8528690c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert64
+    second: {fileID: 2100000, guid: 4343f539f2360bd45910a5747df0ccc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert65
+    second: {fileID: 2100000, guid: 50cc33db854165345aea0bbebadf743c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thiefhat1
+    second: {fileID: 2100000, guid: 50cc33db854165345aea0bbebadf743c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

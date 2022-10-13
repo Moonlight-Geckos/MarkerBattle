@@ -6,7 +6,32 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert55.003
+    second: {fileID: 2100000, guid: 70ee237f46c7eeb4e83eff33bfe9a68a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert57
+    second: {fileID: 2100000, guid: c6c1a287eaac61e4381f84b8528690c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert58
+    second: {fileID: 2100000, guid: 9d8007235c126c54388e37e53dbf279c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert59
+    second: {fileID: 2100000, guid: c6c1a287eaac61e4381f84b8528690c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: protagonist_blue.002
+    second: {fileID: 2100000, guid: 4a18e8d235425e744ad98f6ef1453947, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

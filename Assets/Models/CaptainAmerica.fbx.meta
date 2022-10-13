@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaptainAmericaBlue
+    second: {fileID: 2100000, guid: 0fc2f519fe3e3f445a950cdbd6d2a1ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaptainAmericaRed
+    second: {fileID: 2100000, guid: 6e5dd73e64d20904fa2f8ca340ecf470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaptainAmerickaBlueDark
+    second: {fileID: 2100000, guid: c27ef07cd82127048a45e7eed5876a9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaptainAmerickaLeather
+    second: {fileID: 2100000, guid: 267cef12ba59e73409fa30a2d293aae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaptainAmerickaSilver
+    second: {fileID: 2100000, guid: 4343f539f2360bd45910a5747df0ccc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: protagonist_blue.005
+    second: {fileID: 2100000, guid: 0fc2f519fe3e3f445a950cdbd6d2a1ce, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

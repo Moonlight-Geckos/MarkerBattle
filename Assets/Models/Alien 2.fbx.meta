@@ -16,17 +16,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightGreen.007
-    second: {fileID: 2100000, guid: 8e8e3ed2624499e4a920a5f3c2e8ef40, type: 2}
+    second: {fileID: 2100000, guid: eb45b3968d3b5bf4e9e39928e26c4cbd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightWhite.007
-    second: {fileID: 2100000, guid: 9a528ec4d1beae546be06d38b21de0ab, type: 2}
+    second: {fileID: 2100000, guid: efc8797192b6e7d4597337e85a325bf9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: White.007
-    second: {fileID: 2100000, guid: b7fc4557a6d4f1b4a9c17ddee3124f32, type: 2}
+    second: {fileID: 2100000, guid: e8b7bfd9d2709294ba91e0277ed360bd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

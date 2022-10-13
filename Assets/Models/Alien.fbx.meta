@@ -11,22 +11,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Black.007
-    second: {fileID: 2100000, guid: 26d1c99e3e7ab0a4c9f660069bfb5061, type: 2}
+    second: {fileID: 2100000, guid: e35997de40fa9a541984363762754109, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightGreen.007
-    second: {fileID: 2100000, guid: c6499a2b3638eb4428314f73589f9adf, type: 2}
+    second: {fileID: 2100000, guid: 008b8f703f899c345a2c92b05817da2c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightWhite.007
-    second: {fileID: 2100000, guid: 9a528ec4d1beae546be06d38b21de0ab, type: 2}
+    second: {fileID: 2100000, guid: efc8797192b6e7d4597337e85a325bf9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: White.007
-    second: {fileID: 2100000, guid: f6b9a6be15615a940b69af8c4c6b047f, type: 2}
+    second: {fileID: 2100000, guid: 1a6e4cf0f0b6577428b5d6a613d410c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

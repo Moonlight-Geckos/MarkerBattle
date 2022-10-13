@@ -6,7 +6,52 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceBoots.003
+    second: {fileID: 2100000, guid: 9d8007235c126c54388e37e53dbf279c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert61.001
+    second: {fileID: 2100000, guid: 9d8007235c126c54388e37e53dbf279c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert67
+    second: {fileID: 2100000, guid: f7a03434894e6cf47aa56b26785a3a23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert68
+    second: {fileID: 2100000, guid: 267cef12ba59e73409fa30a2d293aae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert69
+    second: {fileID: 2100000, guid: accf83d60343d7f4d953bc973d89196d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert70
+    second: {fileID: 2100000, guid: accf83d60343d7f4d953bc973d89196d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert71
+    second: {fileID: 2100000, guid: cb74d26a532d5c04cbb552f3d67fa7d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert72
+    second: {fileID: 2100000, guid: accf83d60343d7f4d953bc973d89196d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: protagonist_blue.003
+    second: {fileID: 2100000, guid: 4a18e8d235425e744ad98f6ef1453947, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

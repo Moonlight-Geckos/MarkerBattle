@@ -6,7 +6,57 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThanosArmor
+    second: {fileID: 2100000, guid: 32cc1b15a03b5b54dad01b057f9918b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThanosGemGreen
+    second: {fileID: 2100000, guid: e1af779097c643040a54d575d6ad6f5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThanosGemOrange
+    second: {fileID: 2100000, guid: 1856985e9315b474882c95bac44d7485, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThanosGemPurple
+    second: {fileID: 2100000, guid: 454d51c4b00eb1a4fb307a68f7a6c7f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 7f7f9bae38e6e024c8324d81c8950bfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn3
+    second: {fileID: 2100000, guid: c55e65f7b9d87754e812c3cd9cd2e50c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn5
+    second: {fileID: 2100000, guid: d8cdc62044df2364181fa5c812a64b51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert80
+    second: {fileID: 2100000, guid: e35997de40fa9a541984363762754109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert81
+    second: {fileID: 2100000, guid: d210a9b71fe89c241941e74f70d2f2c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert84
+    second: {fileID: 2100000, guid: d210a9b71fe89c241941e74f70d2f2c9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
