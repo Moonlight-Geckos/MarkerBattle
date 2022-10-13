@@ -130,6 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   PlayerOwnerNumber: 1
+  outlinerTransparencySettled: 0.3
+  outlinerTransparencyGrowing: 1
+  circleTransparencySettled: 0.9
+  circleTransparencyGrowing: 0.4
 --- !u!1 &9119869088773311683
 GameObject:
   m_ObjectHideFlags: 0

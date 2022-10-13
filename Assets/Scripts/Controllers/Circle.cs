@@ -8,6 +8,11 @@ public class Circle : MonoBehaviour
     public bool Active;
     public int PlayerOwnerNumber;
 
+    public float outlinerTransparencySettled = 0.3f;
+    public float outlinerTransparencyGrowing = 1f;
+    public float circleTransparencySettled = 0.9f;
+    public float circleTransparencyGrowing = 0.4f;
+
     private Player _ownerPlayer;
     private Material _material;
     private IDisposable _disposable;
@@ -19,6 +24,9 @@ public class Circle : MonoBehaviour
 
     HashSet<Circle> _newIntersectedCircles;
     HashSet<Circle> _intersectedCircles;
+
+    
+
     public Player OwnerPlayer
     {
         get { return _ownerPlayer; }
@@ -34,9 +42,16 @@ public class Circle : MonoBehaviour
         _intersectedCircles = new HashSet<Circle>();
         rend = GetComponentInChildren<SpriteRenderer>();
 
+        //Change circle transparency to circleTransparencySettled
+        var mat = GetComponent<MeshRenderer>().material;
+        Color col = mat.color;
+        col.a = circleTransparencySettled;
+        mat.color = col;
+
+
         //Change outliner alpha here
         Color color = rend.color;
-        color.a = 0.3f;
+        color.a = outlinerTransparencySettled;
         rend.color = color;
     }
     private void Start()
@@ -90,11 +105,11 @@ public class Circle : MonoBehaviour
 
         tranColor = _ownerPlayer.mainColor;
         // Changing Transparency here when growing
-        tranColor.a = 0.40f;
+        tranColor.a = circleTransparencyGrowing;
         SetColor(tranColor);
 
         Color color = rend.color;
-        color.a = 1f;
+        color.a = outlinerTransparencyGrowing;
         rend.color = color;
 
         _newIntersectedCircles.Clear();
@@ -134,7 +149,7 @@ public class Circle : MonoBehaviour
         Active = true;
 
         // can change aplha here if needed
-        _ownerPlayer.mainColor.a = 0.9f;
+        _ownerPlayer.mainColor.a = circleTransparencySettled;
         SetColor(_ownerPlayer.mainColor);
 
         _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
@@ -145,7 +160,7 @@ public class Circle : MonoBehaviour
 
         // deactivating circle here
         Color color = rend.color;
-        color.a = 0.3f;
+        color.a = outlinerTransparencySettled;
         rend.color = color;
     }
     private void SetColor(Color color)
