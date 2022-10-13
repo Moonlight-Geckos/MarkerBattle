@@ -132,8 +132,8 @@ MonoBehaviour:
   PlayerOwnerNumber: 1
   outlinerTransparencySettled: 0.3
   outlinerTransparencyGrowing: 1
-  circleTransparencySettled: 0.9
-  circleTransparencyGrowing: 0.4
+  circleTransparencySettled: 1
+  circleTransparencyGrowing: 0.3
 --- !u!1 &9119869088773311683
 GameObject:
   m_ObjectHideFlags: 0
