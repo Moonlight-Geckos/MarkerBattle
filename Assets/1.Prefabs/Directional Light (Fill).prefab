@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3705321960016218202
+--- !u!1 &4988024402752579270
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3705321960016218200}
-  - component: {fileID: 3705321960016218201}
+  - component: {fileID: 4988024402752579268}
+  - component: {fileID: 4988024402752579269}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Directional Light (Fill)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3705321960016218200
+--- !u!4 &4988024402752579268
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705321960016218202}
-  m_LocalRotation: {x: 0.9063079, y: 0, z: 0, w: 0.42261827}
+  m_GameObject: {fileID: 4988024402752579270}
+  m_LocalRotation: {x: 0.45315382, y: 0.36599815, z: -0.7848856, w: 0.21130908}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 130, y: 0, z: 0}
---- !u!108 &3705321960016218201
+  m_LocalEulerAnglesHint: {x: 130, y: 120, z: 0}
+--- !u!108 &4988024402752579269
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705321960016218202}
+  m_GameObject: {fileID: 4988024402752579270}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Color: {r: 0.6058562, g: 0.8218533, b: 0.9528302, a: 0.9607843}
+  m_Intensity: 0.55
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 25
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: 0
     m_CustomResolution: -1
-    m_Strength: 0.735
+    m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0
     m_NearPlane: 0.1

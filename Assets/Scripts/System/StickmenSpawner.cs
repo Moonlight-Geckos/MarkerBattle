@@ -76,7 +76,7 @@ public class StickmenSpawner : MonoBehaviour
                         var stickman = stickmenPoolEnemy.Pool.Get();
                         stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);
                     }
-                    else if(circle.OwnerPlayer.number == 1 && stickmenPoolEnemy2 != null)
+                    else if(circle.OwnerPlayer.number == 2 && stickmenPoolEnemy2 != null)
                     {
                         var stickman = stickmenPoolEnemy2.Pool.Get();
                         stickman.Initialize(circle.OwnerPlayer, 4, position, Vector3.zero);

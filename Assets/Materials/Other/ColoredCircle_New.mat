@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColoredCircle
+  m_Name: ColoredCircle_New
   m_Shader: {fileID: 4800000, guid: 12fc370f8d0023842bb5c638ce0be435, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -75,6 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.38576105, b: 0.845, a: 0.49019608}
+    - _Color: {r: 0, g: 0.38576102, b: 0.845, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -15,6 +15,8 @@ public class Circle : MonoBehaviour
     private Color tranColor;
     private Flag _flag;
 
+    private SpriteRenderer rend;
+
     HashSet<Circle> _newIntersectedCircles;
     HashSet<Circle> _intersectedCircles;
     public Player OwnerPlayer
@@ -30,6 +32,12 @@ public class Circle : MonoBehaviour
         _material = GetComponent<Renderer>().material;
         _newIntersectedCircles = new HashSet<Circle>();
         _intersectedCircles = new HashSet<Circle>();
+        rend = GetComponentInChildren<SpriteRenderer>();
+
+        //Change outliner alpha here
+        Color color = rend.color;
+        color.a = 0.3f;
+        rend.color = color;
     }
     private void Start()
     {
@@ -81,11 +89,17 @@ public class Circle : MonoBehaviour
         transform.localScale = Vector3.one * 0.1f;
 
         tranColor = _ownerPlayer.mainColor;
-        tranColor.a = 0.7f;
+        // Changing Transparency here when growing
+        tranColor.a = 0.40f;
         SetColor(tranColor);
+
+        Color color = rend.color;
+        color.a = 1f;
+        rend.color = color;
 
         _newIntersectedCircles.Clear();
         _intersectedCircles.Clear();
+
     }
     public void Dispose()
     {
@@ -118,11 +132,21 @@ public class Circle : MonoBehaviour
             return;
         }
         Active = true;
+
+        // can change aplha here if needed
+        _ownerPlayer.mainColor.a = 0.9f;
         SetColor(_ownerPlayer.mainColor);
+
         _flag = PoolsPool.Instance.FlagsPool.Pool.Get();
         _flag.Initialize(this);
+
         if (_newIntersectedCircles.Count > 0)
             SetupIntersections();
+
+        // deactivating circle here
+        Color color = rend.color;
+        color.a = 0.3f;
+        rend.color = color;
     }
     private void SetColor(Color color)
     {
